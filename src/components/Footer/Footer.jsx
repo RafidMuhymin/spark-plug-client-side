@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="d-flex p-3 gap-3 justify-content-between">
+    <footer className="d-flex flex-column flex-md-row p-3 gap-4 justify-content-between">
       <div className="d-flex flex-column gap-3 justify-content-between">
         <h2>Spark Plug</h2>
 
@@ -32,7 +32,7 @@ export default function Footer() {
           </a>
         </nav>
 
-        <nav className="d-flex gap-2">
+        <nav className="d-flex gap-2 justify-content-end align-items-center">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/blog">Blog</NavLink>
           <NavLink to="/contact">Contact</NavLink>

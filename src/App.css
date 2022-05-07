@@ -5,3 +5,7 @@
 :root {
   font-size: large;
 }
+
+nav a {
+  text-align: center;
+}
