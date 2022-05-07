@@ -1,0 +1,11 @@
+footer {
+  background-image: linear-gradient(rgb(3, 0, 30) 0%, rgb(30, 0, 30) 100%);
+}
+
+footer h2 {
+  color: rgba(255, 255, 255, 0.875);
+}
+
+footer :is(h2, p) {
+  margin: 0 !important;
+}
