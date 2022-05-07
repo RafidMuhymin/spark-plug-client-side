@@ -1,0 +1,21 @@
+header {
+  background-image: linear-gradient(rgb(3, 0, 30) 0%, rgb(30, 0, 30) 100%);
+}
+
+header a {
+  font-size: larger;
+}
+
+header :is(h2, button svg) {
+  color: rgba(255, 255, 255, 0.875);
+}
+
+header div button {
+  height: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+  header div.w-100 {
+    width: auto !important;
+  }
+}

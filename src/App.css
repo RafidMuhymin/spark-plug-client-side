@@ -1,3 +1,7 @@
 :root * {
   font-family: "Fredoka", sans-serif;
 }
+
+:root {
+  font-size: large;
+}
