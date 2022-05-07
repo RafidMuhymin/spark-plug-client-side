@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import src from "../../images/ford.jpg";
 
 export default function Banner() {
   return (
-    <div>Banner</div>
-  )
+    <section>
+      <img
+        src={src}
+        className="img-fluid"
+        alt="An electric car charging at an outlet"
+      />
+    </section>
+  );
 }
