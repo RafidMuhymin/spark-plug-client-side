@@ -1,0 +1,7 @@
+.recent-vehicles > div:first-child h2 {
+  color: crimson;
+  text-transform: uppercase;
+}
+
+.recent-vehicles > div:first-child p {
+}
