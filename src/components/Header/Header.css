@@ -6,6 +6,11 @@ header a {
   font-size: larger;
 }
 
+header h2.fs-1 {
+  color: rgb(200, 200, 200);
+  font-family: Pacifico, cursive;
+}
+
 header :is(h2, button svg) {
   color: rgba(255, 255, 255, 0.875);
 }

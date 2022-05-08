@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./Header.css";
 
 export default function Header() {
