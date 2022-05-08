@@ -10,6 +10,7 @@ import Register from "./components/Register/Register";
 import NotFound from "./components/NotFound/NotFound";
 import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -18,7 +19,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/inventory/:id" element={<Inventory />} />
+        <Route
+          path="/inventory/:id"
+          element={
+            <PrivateRoute>
+              <Inventory />
+            </PrivateRoute>
+          }
+        />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/sign-in" element={<SignIn />} />
