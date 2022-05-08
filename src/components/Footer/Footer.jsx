@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="d-flex flex-column flex-md-row p-3 gap-4 justify-content-between">
+    <footer className="d-flex flex-column flex-md-row p-4 gap-4 justify-content-between">
       <div className="d-flex flex-column gap-3 justify-content-between">
         <h2>Spark Plug</h2>
 

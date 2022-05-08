@@ -3,7 +3,8 @@ footer {
 }
 
 footer h2 {
-  color: rgba(255, 255, 255, 0.875);
+  color: rgb(200, 200, 200);
+  font-family: Pacifico, cursive !important;
 }
 
 footer :is(h2, p) {
