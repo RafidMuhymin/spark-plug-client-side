@@ -9,7 +9,7 @@ export default function Inventory() {
   const [carDetails, setCarDetails] = useState({});
 
   useEffect(() => {
-    fetch(fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`))
+    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`)
       .then((res) => res.json())
       .then((data) => setCarDetails(data));
   }, [id]);
@@ -30,7 +30,9 @@ export default function Inventory() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newCarDetails),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
   };
 
   return Object.keys(carDetails).length === 0 ? (
