@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import "./Cars.css";
 
-export default function Cars() {
+export default function Cars({ limit }) {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars`)
+    fetch(
+      `${process.env.REACT_APP_API_HOST_URL}/cars` +
+        (limit ? `?limit=${limit}` : "")
+    )
       .then((response) => response.json())
       .then((cars) => setCars(cars));
   }, []);
