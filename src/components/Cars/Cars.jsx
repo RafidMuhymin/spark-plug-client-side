@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Cars.css";
 
 export default function Cars() {
@@ -9,6 +10,12 @@ export default function Cars() {
       .then((response) => response.json())
       .then((cars) => setCars(cars));
   }, []);
+
+  const navigate = useNavigate();
+
+  const handleClick = (_id) => {
+    navigate(`/cars/${_id}`);
+  };
 
   const loadingSpinner = (
     <div className="spinner p-5 d-flex flex-grow-1 justify-content-center align-items-center">
@@ -39,7 +46,12 @@ export default function Cars() {
                 <span className="d-block">
                   <span className="text-info">Supplier:</span> {supplier}
                 </span>
-                <button className="btn btn-primary d-block mx-auto my-2 px-5">
+                <button
+                  onClick={() => {
+                    handleClick(_id);
+                  }}
+                  className="btn btn-primary d-block mx-auto my-2 px-5"
+                >
                   Manage Stock
                 </button>
               </article>
