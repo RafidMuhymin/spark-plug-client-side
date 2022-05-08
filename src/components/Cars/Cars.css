@@ -2,3 +2,7 @@
   width: 5rem !important;
   height: 5rem !important;
 }
+
+article.car {
+  width: 18rem;
+}
