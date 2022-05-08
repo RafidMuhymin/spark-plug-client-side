@@ -47,7 +47,7 @@ export default function Inventory() {
           </tbody>
         </table>
 
-        <button className="btn btn-primary d-block mx-auto my-2 px-5">
+        <button className="btn btn-primary d-block mx-auto mt-4 mb-2 px-5">
           Deliver Car
         </button>
       </section>
