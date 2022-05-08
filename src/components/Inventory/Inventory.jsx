@@ -17,6 +17,22 @@ export default function Inventory() {
   const { name, price, description, quantity, image, supplier, sold } =
     carDetails;
 
+  const handleDeliverCar = () => {
+    const newCarDetails = {
+      ...carDetails,
+      quantity: quantity - 1,
+      sold: sold + 1,
+    };
+
+    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCarDetails),
+    });
+  };
+
   return Object.keys(carDetails).length === 0 ? (
     <Spinner />
   ) : (
@@ -47,7 +63,10 @@ export default function Inventory() {
           </tbody>
         </table>
 
-        <button className="btn btn-primary d-block mx-auto mt-4 mb-2 px-5">
+        <button
+          onClick={handleDeliverCar}
+          className="btn btn-primary d-block mx-auto mt-4 mb-2 px-5"
+        >
           Deliver Car
         </button>
       </section>
