@@ -1,0 +1,31 @@
+.banner > div > span {
+  top: 5%;
+  left: 4%;
+}
+
+.banner > div > div {
+  right: 4%;
+  bottom: 5%;
+}
+
+.banner span {
+  margin: 0;
+  display: block;
+  text-align: right;
+  font-family: Pacifico, cursive;
+}
+
+.banner span.h2 {
+  font-size: 5vw;
+  color: rgb(175, 175, 175);
+}
+
+.banner > div > div > span:first-child {
+  color: rgb(220, 220, 220);
+}
+
+.banner span.h3 {
+  color: rgb(150, 150, 150);
+  font-size: 3vw;
+  margin-top: 3vw;
+}
