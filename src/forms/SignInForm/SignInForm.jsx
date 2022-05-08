@@ -6,9 +6,9 @@ import Spinner from "../../components/Spinner/Spinner";
 import getErrorMessage from "../../utils/getErrorMessage";
 import Toast from "../../components/Toast/Toast";
 import auth from "../../firebase/firebase";
-import "./LoginForm.css";
+import "./SignInForm.css";
 
-export default function LoginForm({
+export default function SignInForm({
   register,
   callback,
   forgotPasswordCallback,
@@ -37,7 +37,7 @@ export default function LoginForm({
     };
   }, [err]);
 
-  // handle login or register
+  // handle sign in or register
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -54,7 +54,7 @@ export default function LoginForm({
       });
     }
 
-    // call login or register callback
+    // call signin or register callback
     callback(formdata);
   };
 
@@ -96,7 +96,7 @@ export default function LoginForm({
   return (
     <main className="sign p-4 mx-auto">
       <h1 className="pb-2 text-center">
-        {register ? "Register an Account" : "Login to your Account"}
+        {register ? "Register an Account" : "Sign In to your Account"}
       </h1>
 
       <form onSubmit={handleSubmit}>
@@ -165,7 +165,7 @@ export default function LoginForm({
           ) : register ? (
             "Register"
           ) : (
-            "Login"
+            "Sign In"
           )}
         </button>
 

@@ -7,7 +7,7 @@ export default function Cars() {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/cars")
+    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars`)
       .then((response) => response.json())
       .then((cars) => setCars(cars));
   }, []);

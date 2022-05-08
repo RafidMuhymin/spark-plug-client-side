@@ -9,7 +9,7 @@ export default function Inventory() {
   const [carDetails, setCarDetails] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:8080/cars/${id}`)
+    fetch(fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`))
       .then((res) => res.json())
       .then((data) => setCarDetails(data));
   }, [id]);
