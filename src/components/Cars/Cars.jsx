@@ -26,13 +26,22 @@ export default function Cars() {
         ({ _id, name, price, description, quantity, image, supplier }) => {
           return (
             <div key={_id} className="p-3">
-              <article className="car h-100 p-3 rounded-3 d-flex flex-column justify-content-between">
+              <article className="car text-center h-100 p-3 rounded-3 d-flex flex-column justify-content-between">
                 <img src={image} alt={name} className="img-fluid" />
                 <h3>{name}</h3>
-                <p>{description}</p>
-                <span className="d-block">{price}</span>
-                <span className="d-block">{quantity}</span>
-                <span className="d-block">{supplier}</span>
+                <p className="text-secondary">{description}</p>
+                <span className="d-block">
+                  <span className="text-info">Price:</span> ${price}
+                </span>
+                <span className="d-block">
+                  <span className="text-info">Quantity:</span> {quantity}
+                </span>
+                <span className="d-block">
+                  <span className="text-info">Supplier:</span> {supplier}
+                </span>
+                <button className="btn btn-primary d-block mx-auto my-2 px-5">
+                  Manage Stock
+                </button>
               </article>
             </div>
           );

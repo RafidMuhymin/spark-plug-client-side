@@ -8,14 +8,20 @@ article.car {
   background-image: linear-gradient(rgb(3, 0, 30) 0%, rgb(30, 0, 30) 100%);
 }
 
+article.car :is(h3, span.d-block) {
+  color: rgb(175, 175, 175);
+}
+
 .cars-container::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
+
 .cars-container::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .cars-container::-webkit-scrollbar-thumb {
   background-color: #e78632;
   background-image: -webkit-linear-gradient(
