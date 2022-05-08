@@ -5,4 +5,29 @@
 
 article.car {
   width: 18rem;
+  background-image: linear-gradient(rgb(3, 0, 30) 0%, rgb(30, 0, 30) 100%);
+}
+
+.cars-container::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.cars-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.cars-container::-webkit-scrollbar-thumb {
+  background-color: #e78632;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3) 20%,
+    transparent 20%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.3) 60%,
+    transparent 60%,
+    transparent 80%,
+    rgba(255, 255, 255, 0.3) 80%
+  );
+  border-radius: 10px;
 }
