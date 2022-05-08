@@ -4,12 +4,12 @@ import ContactForm from "../../forms/ContactForm/ContactForm";
 export default function Contact() {
   return (
     <main
+      className="mx-auto p-4"
       style={{
         maxWidth: "768px",
-        margin: "0 auto",
       }}
     >
-      <h1 className="text-center p-4">Contact Us</h1>
+      <h1 className="text-center">Contact Us</h1>
 
       <ContactForm />
     </main>
