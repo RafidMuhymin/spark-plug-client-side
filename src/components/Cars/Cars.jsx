@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 import "./Cars.css";
 
 export default function Cars() {
@@ -14,19 +15,11 @@ export default function Cars() {
   const navigate = useNavigate();
 
   const handleClick = (_id) => {
-    navigate(`/cars/${_id}`);
+    navigate(`/inventory/${_id}`);
   };
 
-  const loadingSpinner = (
-    <div className="spinner p-5 d-flex flex-grow-1 justify-content-center align-items-center">
-      <div className="spinner-grow text-primary" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  );
-
   return cars.length === 0 ? (
-    loadingSpinner
+    <Spinner />
   ) : (
     <div className="cars-container d-flex align-items-stretch overflow-auto">
       {cars.map(

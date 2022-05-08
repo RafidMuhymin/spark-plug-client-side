@@ -1,0 +1,25 @@
+.inventory-page section {
+  max-width: 992px;
+  color: rgb(230, 230, 230);
+}
+
+.inventory-page main {
+  margin: 0 !important;
+}
+
+.inventory-page section table th {
+  color: rgb(13, 202, 240);
+}
+
+.inventory-page section table td {
+  text-align: center;
+}
+
+.inventory-page section table tr * {
+  padding: 0.5rem 1rem;
+}
+
+.inventory-page section :is(table, th, td) {
+  border: 1px solid rgb(180, 180, 180) !important;
+  border-collapse: collapse !important;
+}
