@@ -2,12 +2,21 @@ import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import "./Header.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase/firebase";
+import { signOut } from "firebase/auth";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState();
 
   const handleMenuToggle = () => {
     setShowMenu(!showMenu);
+  };
+
+  const [user] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth);
   };
 
   return (
@@ -29,8 +38,21 @@ export default function Header() {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/sign-in">Sign In</NavLink>
-        <NavLink to="/register">Register</NavLink>
+
+        {user ? (
+          <>
+            <NavLink to="/my-cars">My Cars</NavLink>
+            <NavLink to="/manage-cars">Manage Cars</NavLink>
+            <button onClick={handleSignOut} className="btn btn-link p-0">
+              Sign Out
+            </button>
+          </>
+        ) : (
+          <>
+            <NavLink to="/sign-in">Sign In</NavLink>
+            <NavLink to="/register">Register</NavLink>
+          </>
+        )}
       </nav>
     </header>
   );

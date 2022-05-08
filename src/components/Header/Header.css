@@ -2,8 +2,8 @@ header {
   background-image: linear-gradient(rgb(3, 0, 30) 0%, rgb(30, 0, 30) 100%);
 }
 
-header a {
-  font-size: larger;
+header nav * {
+  font-size: larger !important;
 }
 
 header h2.fs-1 {
