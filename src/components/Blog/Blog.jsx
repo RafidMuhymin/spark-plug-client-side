@@ -14,10 +14,10 @@ export default function Blog() {
         </h2>
 
         <p>
-          <code>Authorization</code> means authorizing or giving someone power
-          to access private or secure things. And <code>authentication</code>{" "}
-          means authenticating or verifying someone that what they are saying
-          about them is true.
+          Javascript is the primary programming language for the web. It runs in
+          a browser engine that has been written to execute it. Whereas, Node.js
+          is an asynchronous event-driven JavaScript Runtime where JS code can
+          be executed. It allows running JS outside a browser.
         </p>
 
         <h2>
@@ -26,12 +26,11 @@ export default function Blog() {
         </h2>
 
         <p>
-          I am using <code>firebase</code> because it is one of the best tools
-          out there to implement authentication in applications. It is easy to
-          use and it is very powerful. There are many other good options
-          available too, such as, <code>Supabase</code>,{" "}
-          <code>Passport JS</code>, <code>Auth0</code>, <code>Okta</code>,{" "}
-          <code>Amazon Cognito</code> etc.
+          Node.js is a JavaScript runtime and MongoDB is a NoSQL database. They
+          aren't related. You should use Node.js if you want create an efficent
+          server using JavaScript. And you should use MongoDB if you want to
+          store data in an optimized NoSQL database. And it's perfectly okay to
+          use both of them together.
         </p>
 
         <h2>
@@ -39,10 +38,13 @@ export default function Blog() {
         </h2>
 
         <p>
-          Firebase provides other services such as, <code>Firestore</code>,{" "}
-          <code>Hosting</code>, <code>Cloud Messaging</code>,{" "}
-          <code>Cloud Functions</code>, <code>Firebase ML</code>, etc. other
-          than authentication.
+          SQL databases are relational databases and NoSQL databases are
+          non-relational databases. Data is stored in a structured format in an
+          SQL database. And NoSQL stores data in an unstructured format and lets
+          the developer choose how they want to manage it. SQL databases are
+          generally recommended for enterprise grade applications. And NoSQL
+          databases are for setting up and managing databases quickly and
+          easily.
         </p>
 
         <h2>
@@ -50,10 +52,10 @@ export default function Blog() {
         </h2>
 
         <p>
-          Firebase provides other services such as, <code>Firestore</code>,{" "}
-          <code>Hosting</code>, <code>Cloud Messaging</code>,{" "}
-          <code>Cloud Functions</code>, <code>Firebase ML</code>, etc. other
-          than authentication.
+          JWT is an open standard for securely transmitting data between parties
+          as a JSON object. This information is digitally signed. So, it works
+          by verifying the signature and if it's valid, only then the user gets
+          permission to add, remove or change data.
         </p>
       </div>
     </main>
