@@ -159,8 +159,8 @@ export default function SignInForm({
 
         <button className="px-5 btn btn-primary d-block mx-auto" type="submit">
           {loading ? (
-            <div class="spinner-border text-light" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           ) : register ? (
             "Register"
@@ -189,8 +189,8 @@ export default function SignInForm({
         className="px-5 btn btn-primary d-flex gap-2 mx-auto align-items-center"
       >
         {signingInWithGoogle ? (
-          <div class="spinner-border text-light m-1" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-light m-1" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
           <>
