@@ -18,7 +18,7 @@ export default function Cars({ limit, fromManageCarsPage, fromMyCarsPage }) {
     )
       .then((response) => response.json())
       .then((cars) => setCars(cars));
-  }, [limit]);
+  }, [limit, fromMyCarsPage]);
 
   const navigate = useNavigate();
 
