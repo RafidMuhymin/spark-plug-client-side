@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import auth from "../../firebase/firebase";
 import SpinnerGrow from "../SpinnerGrow/SpinnerGrow";
 import "./Cars.css";
 
-export default function Cars({ limit, fromManageCarsPage }) {
+export default function Cars({ limit, fromManageCarsPage, fromMyCarsPage }) {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
     fetch(
       `${process.env.REACT_APP_API_HOST_URL}/cars` +
-        (limit ? `?limit=${limit}` : "")
+        (fromMyCarsPage
+          ? `?userId=${auth.currentUser.uid}`
+          : limit
+          ? `?limit=${limit}`
+          : "")
     )
       .then((response) => response.json())
       .then((cars) => setCars(cars));
@@ -34,7 +39,7 @@ export default function Cars({ limit, fromManageCarsPage }) {
   ) : (
     <div
       className={
-        fromManageCarsPage
+        fromManageCarsPage || fromMyCarsPage
           ? "d-flex flex-wrap justify-content-evenly"
           : "cars-container d-flex align-items-stretch overflow-auto"
       }

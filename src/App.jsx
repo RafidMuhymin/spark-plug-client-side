@@ -13,6 +13,7 @@ import Blog from "./components/Blog/Blog";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ManageCars from "./components/ManageCars/ManageCars";
 import AddNewCar from "./components/AddNewCar/AddNewCar";
+import MyCars from "./components/MyCars/MyCars";
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
           element={
             <PrivateRoute>
               <Car />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/my-cars"
+          element={
+            <PrivateRoute>
+              <MyCars />
             </PrivateRoute>
           }
         />
