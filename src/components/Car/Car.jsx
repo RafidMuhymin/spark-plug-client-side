@@ -11,8 +11,8 @@ export default function Car() {
   const [carDetails, setCarDetails] = useState({});
   const [deliveringCar, setDeliveringCar] = useState(false);
   const [restockingCar, setRestockingCar] = useState(false);
-  const [deliveryError, setDeliveryError] = useState(false);
-  const [restockingError, setRestockingError] = useState(false);
+  const [deliveryError, setDeliveryError] = useState("");
+  const [restockingError, setRestockingError] = useState("");
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`)

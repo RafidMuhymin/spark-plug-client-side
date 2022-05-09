@@ -1,9 +1,15 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import SpinnerBorder from "../../components/SpinnerBorder/SpinnerBorder";
 
 export default function NewCarForm() {
+  const [addingCar, setAddingCar] = useState(false);
+  const [addingCarError, setAddingCarError] = useState("");
+
   const addNewCar = (e) => {
     e.preventDefault();
+
+    setAddingCar(true);
 
     const formData = Object.fromEntries(new FormData(e.target));
 
@@ -19,7 +25,22 @@ export default function NewCarForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if (data.insertedId) {
+          setAddingCar(false);
+        } else {
+          setAddingCarError("Couldn't save changes to the Database");
+
+          setTimeout(() => {
+            setAddingCarError("");
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        setAddingCarError(error.message);
+
+        setTimeout(() => {
+          setAddingCarError("");
+        }, 3000);
       });
   };
 
@@ -118,9 +139,20 @@ export default function NewCarForm() {
 
       <br />
 
-      <button type="submit" className="btn btn-primary d-block mx-auto">
-        Add a New Car <Icon icon="akar-icons:plus" />
+      <button
+        type="submit"
+        className="px-5 py-2 btn btn-primary d-block mx-auto"
+      >
+        {addingCar ? (
+          <SpinnerBorder />
+        ) : (
+          <>
+            Add a New Car <Icon icon="akar-icons:plus" />
+          </>
+        )}
       </button>
+
+      {addingCarError && <p className="mt-2 text-danger">{addingCarError}</p>}
     </form>
   );
 }
@@ -136,4 +168,5 @@ Volkswagen
 https://media.ed.edmunds-media.com/volkswagen/id4/2021/oem/2021_volkswagen_id4_4dr-suv_awd-pro-s-statement_fq_oem_2_500.jpg
 
 The ID.4 is one of the first all-electric compact SUVs to hit the market, offering loads of standard features and a genuinely spacious cabin. It pushes the envelope with some neat technology and traveled 287 miles on a single charge in Edmunds' real-world range test.
+
 */
