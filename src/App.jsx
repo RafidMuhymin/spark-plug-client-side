@@ -11,6 +11,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ManageCars from "./components/ManageCars/ManageCars";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/car/:id"
           element={
@@ -27,10 +32,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/register" element={<Register />} />
+        <Route
+          path="/manage-cars"
+          element={
+            <PrivateRoute>
+              <ManageCars />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
