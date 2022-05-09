@@ -153,9 +153,9 @@ export default function NewCarForm() {
         {addingCar ? (
           <SpinnerBorder />
         ) : (
-          <>
+          <span className="d-inline-flex gap-2 justify-content-center align-items-center">
             Add a New Car <Icon icon="akar-icons:plus" />
-          </>
+          </span>
         )}
       </button>
 
