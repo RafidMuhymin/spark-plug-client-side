@@ -12,6 +12,7 @@ import Contact from "./components/Contact/Contact";
 import Blog from "./components/Blog/Blog";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ManageCars from "./components/ManageCars/ManageCars";
+import AddNewCar from "./components/AddNewCar/AddNewCar";
 
 function App() {
   return (
@@ -37,6 +38,14 @@ function App() {
           element={
             <PrivateRoute>
               <ManageCars />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/add-new-car"
+          element={
+            <PrivateRoute>
+              <AddNewCar />
             </PrivateRoute>
           }
         />
