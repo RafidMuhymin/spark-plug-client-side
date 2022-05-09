@@ -87,14 +87,14 @@ export default function NewCarForm() {
 
       <br />
 
-      <label htmlFor="imageUrl" className="form-label">
+      <label htmlFor="image" className="form-label">
         Provide a URL to an Image showing The Car
       </label>
       <input
         className="form-control"
         type="url"
-        name="imageUrl"
-        id="imageUrl"
+        name="image"
+        id="image"
         autoComplete="photo"
         required
       />
