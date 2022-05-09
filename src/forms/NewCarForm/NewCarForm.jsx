@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import SpinnerBorder from "../../components/SpinnerBorder/SpinnerBorder";
+import auth from "../../firebase/firebase";
 
 export default function NewCarForm() {
   const [addingCar, setAddingCar] = useState(false);
@@ -16,6 +17,8 @@ export default function NewCarForm() {
     formData.price = parseInt(formData.price).toLocaleString("en-US");
     formData.quantity = parseInt(formData.quantity);
 
+    formData.userId = auth.currentUser.uid;
+
     fetch(`${process.env.REACT_APP_API_HOST_URL}/cars`, {
       method: "POST",
       headers: {
@@ -25,15 +28,15 @@ export default function NewCarForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          setAddingCar(false);
-        } else {
+        if (!data.insertedId) {
           setAddingCarError("Couldn't save changes to the Database");
 
           setTimeout(() => {
             setAddingCarError("");
           }, 3000);
         }
+
+        setAddingCar(false);
       })
       .catch((error) => {
         setAddingCarError(error.message);
@@ -41,6 +44,8 @@ export default function NewCarForm() {
         setTimeout(() => {
           setAddingCarError("");
         }, 3000);
+
+        setAddingCar(false);
       });
   };
 
@@ -152,7 +157,9 @@ export default function NewCarForm() {
         )}
       </button>
 
-      {addingCarError && <p className="mt-2 text-danger">{addingCarError}</p>}
+      {addingCarError && (
+        <p className="mt-3 text-center text-danger">{addingCarError}</p>
+      )}
     </form>
   );
 }
