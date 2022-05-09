@@ -35,6 +35,27 @@ export default function Inventory() {
       .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
   };
 
+  const handleRestock = (e) => {
+    e.preventDefault();
+
+    const restockQuantity = parseInt(e.target["restock-quantity"].value);
+
+    const newCarDetails = {
+      ...carDetails,
+      quantity: quantity + restockQuantity,
+    };
+
+    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCarDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
+  };
+
   return Object.keys(carDetails).length === 0 ? (
     <Spinner />
   ) : (
@@ -71,7 +92,12 @@ export default function Inventory() {
               Deliver Car
             </button>
 
-            <form className="w-50 d-flex flex-column gap-1">
+            <form
+              onSubmit={(e) => {
+                handleRestock(e);
+              }}
+              className="w-50 d-flex flex-column gap-1"
+            >
               <label htmlFor="restock-quantity" className="visually-hidden">
                 Restock Quantity
               </label>
