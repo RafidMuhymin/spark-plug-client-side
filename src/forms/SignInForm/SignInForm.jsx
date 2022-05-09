@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Icon } from "@iconify/react";
-import Spinner from "../../components/Spinner/Spinner";
+import SpinnerGrow from "../../components/SpinnerGrow/SpinnerGrow";
 import getErrorMessage from "../../utils/getErrorMessage";
 import Toast from "../../components/Toast/Toast";
 import auth from "../../firebase/firebase";
 import "./SignInForm.css";
+import SpinnerBorder from "../../components/SpinnerBorder/SpinnerBorder";
 
 export default function SignInForm({
   register,
@@ -86,7 +87,7 @@ export default function SignInForm({
   const location = useLocation();
 
   if (loadingAuthState) {
-    return <Spinner />;
+    return <SpinnerGrow />;
   }
 
   if (user) {
@@ -158,15 +159,7 @@ export default function SignInForm({
         <br />
 
         <button className="px-5 btn btn-primary d-block mx-auto" type="submit">
-          {loading ? (
-            <div className="spinner-border text-light" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </div>
-          ) : register ? (
-            "Register"
-          ) : (
-            "Sign In"
-          )}
+          {loading ? <SpinnerBorder /> : register ? "Register" : "Sign In"}
         </button>
 
         {err && (
@@ -189,9 +182,7 @@ export default function SignInForm({
         className="px-5 btn btn-primary d-flex gap-2 mx-auto align-items-center"
       >
         {signingInWithGoogle ? (
-          <div className="spinner-border text-light m-1" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
+          <SpinnerBorder />
         ) : (
           <>
             <Icon icon="flat-color-icons:google"></Icon>

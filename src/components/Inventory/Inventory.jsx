@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "../Spinner/Spinner";
+import SpinnerBorder from "../SpinnerBorder/SpinnerBorder";
+import SpinnerGrow from "../SpinnerGrow/SpinnerGrow";
 import "./Inventory.css";
 
 export default function Inventory() {
   const { id } = useParams();
 
   const [carDetails, setCarDetails] = useState({});
+  const [deliveringCar, setDeliveringCar] = useState(false);
+  const [restockingCar, setRestockingCar] = useState(false);
+  const [deliveryError, setDeliveryError] = useState(false);
+  const [restockingError, setRestockingError] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`)
@@ -17,7 +22,9 @@ export default function Inventory() {
   const { name, price, description, quantity, image, supplier, sold } =
     carDetails;
 
-  const updateCarDetails = (newCarDetails) => {
+  const updateCarDetails = (newCarDetails, setError, callback) => {
+    setError("");
+
     fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`, {
       method: "PUT",
       headers: {
@@ -26,21 +33,47 @@ export default function Inventory() {
       body: JSON.stringify(newCarDetails),
     })
       .then((res) => res.json())
-      .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
+
+      .then((data) => {
+        if (data.modifiedCount) {
+          setCarDetails(newCarDetails);
+        } else {
+          setError("Couldn't save changes to the database");
+
+          setTimeout(() => {}, 3000);
+        }
+
+        callback();
+      })
+      .catch((err) => {
+        setError(err.message);
+
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+
+        callback();
+      });
   };
 
   const handleDeliverCar = () => {
+    setDeliveringCar(true);
+
     const newCarDetails = {
       ...carDetails,
       quantity: quantity - 1,
       sold: sold + 1,
     };
 
-    updateCarDetails(newCarDetails);
+    updateCarDetails(newCarDetails, setDeliveryError, () => {
+      setDeliveringCar(false);
+    });
   };
 
   const handleRestock = (e) => {
     e.preventDefault();
+
+    setRestockingCar(true);
 
     const restockQuantity = parseInt(e.target["restock-quantity"].value);
 
@@ -49,11 +82,14 @@ export default function Inventory() {
       quantity: quantity + restockQuantity,
     };
 
-    updateCarDetails(newCarDetails);
+    updateCarDetails(newCarDetails, setRestockingError, () => {
+      setRestockingCar(false);
+      e.target.reset();
+    });
   };
 
   return Object.keys(carDetails).length === 0 ? (
-    <Spinner />
+    <SpinnerGrow />
   ) : (
     <main className="bg-dark inventory-page">
       <section className="mx-auto py-4">
@@ -85,8 +121,12 @@ export default function Inventory() {
 
           <div className="d-flex flex-column align-items-center justify-content-center gap-3">
             <button onClick={handleDeliverCar} className="w-50 btn btn-primary">
-              Deliver Car
+              {deliveringCar ? <SpinnerBorder /> : "Deliver Car"}
             </button>
+
+            {deliveryError && (
+              <p className="text-danger mb-0">{deliveryError}</p>
+            )}
 
             <form
               onSubmit={(e) => {
@@ -107,9 +147,13 @@ export default function Inventory() {
               />
 
               <button type="submit" className="btn btn-primary">
-                Restock Cars
+                {restockingCar ? <SpinnerBorder /> : "Restock Cars"}
               </button>
             </form>
+
+            {restockingError && (
+              <p className="text-danger mb-0">{restockingError}</p>
+            )}
 
             <button className="w-50 btn btn-primary">Manage Cars</button>
           </div>

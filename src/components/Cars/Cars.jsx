@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../Spinner/Spinner";
+import SpinnerGrow from "../SpinnerGrow/SpinnerGrow";
 import "./Cars.css";
 
 export default function Cars({ limit }) {
@@ -22,7 +22,7 @@ export default function Cars({ limit }) {
   };
 
   return cars.length === 0 ? (
-    <Spinner />
+    <SpinnerGrow />
   ) : (
     <div className="cars-container d-flex align-items-stretch overflow-auto">
       {cars.map(
