@@ -17,12 +17,11 @@
 }
 
 .inventory-page section table tr {
-  background-image: linear-gradient(rgb(7, 0, 70) 0%, rgb(70, 0, 70) 100%);
+  background-image: linear-gradient(rgb(9, 0, 90) 0%, rgb(90, 0, 90) 100%);
 }
 
-.inventory-page section :is(table, th, td) {
-  border: 1px solid rgb(180, 180, 180) !important;
-  border-collapse: collapse !important;
+.inventory-page section th {
+  border-right: 1px solid rgb(180, 180, 180) !important;
 }
 
 .inventory-page section .information {
