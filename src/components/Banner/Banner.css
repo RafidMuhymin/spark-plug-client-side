@@ -29,3 +29,14 @@
   font-size: 3vw;
   margin-top: 3vw;
 }
+
+@media screen and (min-width: 1440px) {
+  .banner span.h2 {
+    font-size: 72px;
+  }
+
+  .banner span.h3 {
+    font-size: 43.2px;
+    margin-top: 43.2px;
+  }
+}

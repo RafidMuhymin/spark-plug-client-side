@@ -9,3 +9,13 @@
 nav a {
   text-align: center;
 }
+
+.App {
+  background-color: rgb(33, 37, 41) !important;
+  color: white;
+}
+
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+}
