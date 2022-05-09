@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import SpinnerBorder from "../SpinnerBorder/SpinnerBorder";
 import SpinnerGrow from "../SpinnerGrow/SpinnerGrow";
@@ -165,7 +166,9 @@ export default function Car() {
               <p className="text-danger mb-0">{restockingError}</p>
             )}
 
-            <button className="w-50 btn btn-primary">Manage Cars</button>
+            <Link to="/manage-cars" className="w-50 btn btn-primary">
+              Manage Cars
+            </Link>
           </div>
         </div>
       </section>
