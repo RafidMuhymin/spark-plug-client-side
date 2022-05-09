@@ -17,13 +17,7 @@ export default function Inventory() {
   const { name, price, description, quantity, image, supplier, sold } =
     carDetails;
 
-  const handleDeliverCar = () => {
-    const newCarDetails = {
-      ...carDetails,
-      quantity: quantity - 1,
-      sold: sold + 1,
-    };
-
+  const updateCarDetails = (newCarDetails) => {
     fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`, {
       method: "PUT",
       headers: {
@@ -33,6 +27,16 @@ export default function Inventory() {
     })
       .then((res) => res.json())
       .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
+  };
+
+  const handleDeliverCar = () => {
+    const newCarDetails = {
+      ...carDetails,
+      quantity: quantity - 1,
+      sold: sold + 1,
+    };
+
+    updateCarDetails(newCarDetails);
   };
 
   const handleRestock = (e) => {
@@ -45,15 +49,7 @@ export default function Inventory() {
       quantity: quantity + restockQuantity,
     };
 
-    fetch(`${process.env.REACT_APP_API_HOST_URL}/cars/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newCarDetails),
-    })
-      .then((res) => res.json())
-      .then((data) => data.modifiedCount && setCarDetails(newCarDetails));
+    updateCarDetails(newCarDetails);
   };
 
   return Object.keys(carDetails).length === 0 ? (
