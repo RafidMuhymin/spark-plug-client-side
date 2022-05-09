@@ -73,9 +73,19 @@ export default function Inventory() {
   const handleRestock = (e) => {
     e.preventDefault();
 
-    setRestockingCar(true);
-
     const restockQuantity = parseInt(e.target["restock-quantity"].value);
+
+    if (restockQuantity < 1) {
+      setRestockingError("Restock Quantity must be greater than 0");
+
+      setTimeout(() => {
+        setRestockingError("");
+      }, 3000);
+
+      return;
+    }
+
+    setRestockingCar(true);
 
     const newCarDetails = {
       ...carDetails,
