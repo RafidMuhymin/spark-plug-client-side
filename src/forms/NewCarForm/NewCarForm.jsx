@@ -28,7 +28,9 @@ export default function NewCarForm() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (!data.insertedId) {
+        if (data.insertedId) {
+          e.target.reset();
+        } else {
           setAddingCarError("Couldn't save changes to the Database");
 
           setTimeout(() => {
@@ -163,17 +165,3 @@ export default function NewCarForm() {
     </form>
   );
 }
-
-/*
-
-Volkswagen ID.4
-
-Volkswagen
-
-48,940
-
-https://media.ed.edmunds-media.com/volkswagen/id4/2021/oem/2021_volkswagen_id4_4dr-suv_awd-pro-s-statement_fq_oem_2_500.jpg
-
-The ID.4 is one of the first all-electric compact SUVs to hit the market, offering loads of standard features and a genuinely spacious cabin. It pushes the envelope with some neat technology and traveled 287 miles on a single charge in Edmunds' real-world range test.
-
-*/
