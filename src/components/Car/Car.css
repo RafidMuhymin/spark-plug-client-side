@@ -1,35 +1,35 @@
-.inventory-page section {
+.car-page section {
   max-width: 992px;
   color: rgb(230, 230, 230);
 }
 
-.inventory-page main {
+.car-page main {
   margin: 0 !important;
 }
 
-.inventory-page section table td {
+.car-page section table td {
   text-align: center;
 }
 
-.inventory-page section table tr * {
+.car-page section table tr * {
   padding: 0.5rem 1rem;
   color: white;
 }
 
-.inventory-page section table tr {
+.car-page section table tr {
   background-image: linear-gradient(rgb(9, 0, 90) 0%, rgb(90, 0, 90) 100%);
 }
 
-.inventory-page section th {
+.car-page section th {
   border-right: 1px solid rgb(180, 180, 180) !important;
 }
 
-.inventory-page section .information {
+.car-page section .information {
   grid-template-columns: 1fr 1fr;
 }
 
 @media screen and (max-width: 768px) {
-  .inventory-page section .information {
+  .car-page section .information {
     grid-template-columns: 1fr;
   }
 }

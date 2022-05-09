@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./components/Home/Home";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import Inventory from "./components/Inventory/Inventory";
+import Car from "./components/Car/Car";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import SignIn from "./components/SignIn/SignIn";
@@ -20,10 +20,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route
-          path="/inventory/:id"
+          path="/car/:id"
           element={
             <PrivateRoute>
-              <Inventory />
+              <Car />
             </PrivateRoute>
           }
         />

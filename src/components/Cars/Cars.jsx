@@ -18,7 +18,7 @@ export default function Cars({ limit }) {
   const navigate = useNavigate();
 
   const handleClick = (_id) => {
-    navigate(`/inventory/${_id}`);
+    navigate(`/car/${_id}`);
   };
 
   return cars.length === 0 ? (

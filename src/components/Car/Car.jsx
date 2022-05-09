@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import SpinnerBorder from "../SpinnerBorder/SpinnerBorder";
 import SpinnerGrow from "../SpinnerGrow/SpinnerGrow";
-import "./Inventory.css";
+import "./Car.css";
 
-export default function Inventory() {
+export default function Car() {
   const { id } = useParams();
 
   const [carDetails, setCarDetails] = useState({});
@@ -101,7 +101,7 @@ export default function Inventory() {
   return Object.keys(carDetails).length === 0 ? (
     <SpinnerGrow />
   ) : (
-    <main className="bg-dark inventory-page">
+    <main className="bg-dark car-page">
       <section className="mx-auto py-4">
         <img src={image} alt={name} className="img-fluid mx-auto d-block" />
         <h1 className="mb-3 text-center">{name}</h1>
