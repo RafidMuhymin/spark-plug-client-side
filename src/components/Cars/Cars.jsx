@@ -13,7 +13,7 @@ export default function Cars({ limit }) {
     )
       .then((response) => response.json())
       .then((cars) => setCars(cars));
-  }, []);
+  }, [limit]);
 
   const navigate = useNavigate();
 
