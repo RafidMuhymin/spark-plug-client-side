@@ -43,6 +43,7 @@ export default function Header() {
           <>
             <NavLink to="/my-cars">My Cars</NavLink>
             <NavLink to="/manage-cars">Manage Cars</NavLink>
+            <NavLink to="/add-new-car">Add New Car</NavLink>
             <button onClick={handleSignOut} className="btn btn-link p-0">
               Sign Out
             </button>
