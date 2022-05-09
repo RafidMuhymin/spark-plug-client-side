@@ -24,3 +24,7 @@ header div button {
     width: auto !important;
   }
 }
+
+header nav a.active {
+  color: goldenrod;
+}
