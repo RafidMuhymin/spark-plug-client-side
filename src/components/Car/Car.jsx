@@ -76,16 +76,6 @@ export default function Car() {
 
     const restockQuantity = parseInt(e.target["restock-quantity"].value);
 
-    if (restockQuantity < 1) {
-      setRestockingError("Restock Quantity must be greater than 0");
-
-      setTimeout(() => {
-        setRestockingError("");
-      }, 3000);
-
-      return;
-    }
-
     setRestockingCar(true);
 
     const newCarDetails = {
@@ -154,6 +144,7 @@ export default function Car() {
                 </label>
                 <input
                   type="number"
+                  min={1}
                   id="restock-quantity"
                   name="restock-quantity"
                   className="form-control"
