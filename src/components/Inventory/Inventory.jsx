@@ -40,37 +40,58 @@ export default function Inventory() {
   ) : (
     <main className="bg-dark inventory-page">
       <section className="mx-auto py-4">
-        <img src={image} alt={name} className="img-fluid" />
+        <img src={image} alt={name} className="img-fluid mx-auto d-block" />
         <h1 className="mb-3 text-center">{name}</h1>
         <p className="text-center">{description}</p>
 
-        <table className="mx-auto">
-          <tbody>
-            <tr>
-              <th>Price</th>
-              <td>{price}</td>
-            </tr>
-            <tr>
-              <th>Supplier</th>
-              <td>{supplier}</td>
-            </tr>
-            <tr>
-              <th>Quantity</th>
-              <td>{quantity}</td>
-            </tr>
-            <tr>
-              <th>Sold</th>
-              <td>{sold}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="information d-grid gap-4">
+          <table className="mx-auto">
+            <tbody>
+              <tr>
+                <th>Price</th>
+                <td>{price}</td>
+              </tr>
+              <tr>
+                <th>Supplier</th>
+                <td>{supplier}</td>
+              </tr>
+              <tr>
+                <th>Quantity</th>
+                <td>{quantity}</td>
+              </tr>
+              <tr>
+                <th>Sold</th>
+                <td>{sold}</td>
+              </tr>
+            </tbody>
+          </table>
 
-        <button
-          onClick={handleDeliverCar}
-          className="btn btn-primary d-block mx-auto mt-4 mb-2 px-5"
-        >
-          Deliver Car
-        </button>
+          <div className="d-flex flex-column align-items-center justify-content-center gap-3">
+            <button onClick={handleDeliverCar} className="w-50 btn btn-primary">
+              Deliver Car
+            </button>
+
+            <form className="w-50 d-flex flex-column gap-1">
+              <label htmlFor="restock-quantity" className="visually-hidden">
+                Restock Quantity
+              </label>
+              <input
+                type="number"
+                id="restock-quantity"
+                name="restock-quantity"
+                className="form-control"
+                placeholder="Restock Quantity"
+                required
+              />
+
+              <button type="submit" className="btn btn-primary">
+                Restock Cars
+              </button>
+            </form>
+
+            <button className="w-50 btn btn-primary">Manage Cars</button>
+          </div>
+        </div>
       </section>
     </main>
   );
