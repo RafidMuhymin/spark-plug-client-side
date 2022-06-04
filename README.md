@@ -1,4 +1,4 @@
-# Spark Plug
+# Spark Plug | Client Side
 
 **Spark Plug** is an electric car dealership/inventory management website written using `react`, `react-router`, `firebase`, etc. You'll find stocks of some excellent electric vehicles here, and you'll be able to do inventory management too.
 
