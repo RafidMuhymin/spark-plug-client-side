@@ -1,6 +1,6 @@
 # Spark Plug
 
-Spark Plugin is an electric car dealership/inventory management website written using `react`, `react-router`, `firebase`, etc. You'll find stocks of some excellent electric vehicles here, and you'll be able to do inventory management too.
+**Spark Plug** is an electric car dealership/inventory management website written using `react`, `react-router`, `firebase`, etc. You'll find stocks of some excellent electric vehicles here, and you'll be able to do inventory management too.
 
 ## Live URL: https://spark-plug-88457.web.app/
 
