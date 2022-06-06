@@ -1,6 +1,5 @@
 {
-  "name": "laptop-verge",
-  "version": "0.1.0",
+  "name": "Spark Plug",
   "private": true,
   "dependencies": {
     "@iconify/react": "^3.2.1",
